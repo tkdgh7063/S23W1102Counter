@@ -18,9 +18,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kr.ac.kumoh.ce.s20180630.s23w1102counter.ui.theme.S23W1102CounterTheme
@@ -88,7 +88,8 @@ fun Clicker() {
 
 @Composable
 fun Counter() {
-    var (count, setCount) = remember{mutableStateOf(0)}
+    // 회전 시에도 데이터 기억
+    var (count, setCount) = rememberSaveable{mutableStateOf(0)}
 
     Column(
         verticalArrangement = Arrangement.Center,
